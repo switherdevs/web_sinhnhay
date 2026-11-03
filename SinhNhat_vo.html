@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật Bà Xã Yêu! 💗</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Quicksand & Dancing Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --pink-pastel: #FFB7B2;
+            --blue-pastel: #A2E8DD;
+            --soft-bg: #FFF5F5;
+            --font-romantic: 'Dancing Script', cursive;
+            --font-main: 'Quicksand', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: linear-gradient(135deg, #FFDEE9 0%, #B5FFFC 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #5A4A42;
+            user-select: none;
+        }
+
+        .font-romantic {
+            font-family: var(--font-romantic);
+        }
+
+        /* Gentle Floating Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(-3deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
+        }
+
+        @keyframes floatFast {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        @keyframes giftBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.03); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 182, 178, 0.6)); }
+            50% { filter: drop-shadow(0 0 22px rgba(255, 182, 178, 0.9)); }
+        }
+
+        @keyframes sparkleFloat {
+            0% { opacity: 0; transform: translateY(0) scale(0.5); }
+            50% { opacity: 1; transform: translateY(-30px) scale(1.2); }
+            100% { opacity: 0; transform: translateY(-60px) scale(0.5); }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-float-slow {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        .animate-float-fast {
+            animation: floatFast 3s ease-in-out infinite;
+        }
+
+        .animate-gift {
+            animation: giftBounce 2.5s ease-in-out infinite;
+        }
+
+        .animate-glow {
+            animation: pulseGlow 3s infinite;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(255, 182, 178, 0.25);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(255, 182, 178, 0.4);
+        }
+
+        /* Scrapbook Polaroid Style */
+        .polaroid {
+            background: white;
+            padding: 12px 12px 20px 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 20;
+            box-shadow: 0 15px 30px rgba(255, 154, 162, 0.3);
+        }
+
+        /* Floating Side Images Draggable Style */
+        .side-floating-img {
+            position: fixed;
+            z-index: 30;
+            cursor: grab;
+            touch-action: none;
+            user-select: none;
+            filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.15));
+            transition: transform 0.1s ease;
+        }
+
+        .side-floating-img:active {
+            cursor: grabbing;
+            transform: scale(1.1) !important;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF5F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFB7B2;
+            border-radius: 10px;
+        }
+
+        /* Floating background particle */
+        .bg-particle {
+            position: absolute;
+            pointer-events: none;
+            animation: sparkleFloat 4s linear infinite;
+        }
+
+        /* Reduced Motion Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <!-- Background Decor Elements -->
+    <div id="floating-bg" class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <!-- JS generates gentle hearts/sparkles here -->
+    </div>
+
+    <!-- 6 HÌNH ẢNH LƠ LỬNG 2 BÊN RÌA TRANG WEB (ĐÃ BỎ NỀN BÌA VÀ CĂN CHỈNH KÍCH THƯỚC ĐẸP) -->
+    <!-- Bên trái (3 hình) -->
+    <img src="images/float_left1.png" alt="Side Float Left 1" class="side-floating-img draggable-img animate-float w-28 h-28 md:w-[400px] md:h-[400px] object-contain" style="top: 5%; left: -5%;">
+    <img src="images/float_left2.png" alt="Side Float Left 2" class="side-floating-img draggable-img animate-float-slow w-28 h-28 md:w-[300px] md:h-[300px] object-contain" style="top: 42%; left: 1%;">
+    <img src="images/float_left3.png" alt="Side Float Left 3" class="side-floating-img draggable-img animate-float-fast w-24 h-24 md:w-[300px] md:h-[300px] object-contain" style="top: 72%; left: 2%;">
+
+    <!-- Bên phải (3 hình) -->
+    <img src="images/float_right1.png" alt="Side Float Right 1" class="side-floating-img draggable-img animate-float-slow w-24 h-24 md:w-[200px] md:h-[200px] object-contain" style="top: 18%; right: 2%;">
+    <img src="images/float_right2.png" alt="Side Float Right 2" class="side-floating-img draggable-img animate-float w-28 h-28 md:w-[300px] md:h-[300px] object-contain" style="top: 45%; right: 1%;">
+    <img src="images/float_right3.png" alt="Side Float Right 3" class="side-floating-img draggable-img animate-float-fast w-20 h-20 md:w-[450px] md:h-[450px] object-contain" style="top: 70%; right: -5%;">
+
+    <!-- AUDIO PLAYER BUTTON -->
+    <audio id="bg-music" src="noinaycoanhs.mp3" loop preload="auto"></audio>
+
+    <button id="music-toggle" onclick="toggleMusic()" class="fixed top-4 right-4 z-50 bg-white/80 hover:bg-white text-pink-500 font-bold p-3 px-4 rounded-full shadow-lg border-2 border-pink-200 transition-all duration-300 flex items-center space-x-2 text-sm md:text-base backdrop-blur-md" aria-label="Toggle Background Music">
+        <i id="music-icon" class="fas fa-volume-mute text-pink-400"></i>
+        <span id="music-text" class="hidden sm:inline">Âm Nhạc</span>
+    </button>
+
+    <!-- OPENING GIFT SEQUENCE MODAL OVERLAY -->
+    <div id="opening-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 transition-opacity duration-1000">
+        <div class="text-center p-6 max-w-sm mx-auto">
+            <div class="mb-6 inline-block animate-float">
+                <span class="bg-pink-200/60 text-pink-700 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide backdrop-blur-sm">
+                    ✨ Có một món quà gửi đến em ✨
+                </span>
+            </div>
+
+            <!-- Gift Box Wrapper -->
+            <div onclick="openGiftBox()" class="relative cursor-pointer group my-6">
+                <!-- Sparkle Rings -->
+                <div class="absolute -inset-4 bg-gradient-to-r from-pink-300 to-blue-300 rounded-full blur-lg opacity-50 group-hover:opacity-80 transition duration-500 animate-pulse"></div>
+                
+                <!-- Gift Box Graphic -->
+                <div id="gift-box" class="relative z-10 w-44 h-44 md:w-52 md:h-52 mx-auto flex items-center justify-center animate-gift">
+                    <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-xl transition-transform duration-500 hover:scale-105">
+                        <rect x="35" y="80" width="130" height="95" rx="12" fill="#FFB7B2" />
+                        <rect x="90" y="80" width="20" height="95" fill="#FF9AA2" />
+                        <rect x="88" y="80" width="24" height="95" fill="#FFF" opacity="0.9" />
+                        <g id="gift-lid" class="transition-transform duration-700 origin-bottom">
+                            <rect x="25" y="55" width="150" height="35" rx="8" fill="#FF9AA2" />
+                            <rect x="88" y="55" width="24" height="35" fill="#FFF" opacity="0.9" />
+                            <path d="M 70 40 C 50 10, 85 10, 95 55 C 105 10, 140 10, 120 40 Z" fill="#FF80BF" />
+                            <circle cx="100" cy="52" r="9" fill="#FFD1DC" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <p class="text-pink-600 font-semibold text-base md:text-lg animate-pulse mt-4">
+                Chạm vào món quà nhé 💗
+            </p>
+            <p class="text-xs text-gray-400 mt-1">Dành riêng cho công chúa nhỏ</p>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-content" class="relative z-10 flex-grow opacity-0 transition-opacity duration-1000">
+
+        <!-- NAVIGATION BAR -->
+        <header class="sticky top-0 z-40 bg-white/60 backdrop-blur-md border-b border-pink-100/50">
+            <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+                <a href="#" onclick="showPage('home')" class="flex items-center space-x-2">
+                    <span class="text-2xl">👑</span>
+                    <span class="font-romantic text-2xl font-bold text-pink-500">Happy Birthday</span>
+                </a>
+
+                <nav class="flex items-center space-x-1 md:space-x-3">
+                    <button onclick="showPage('home')" id="nav-home" class="nav-btn text-xs md:text-sm font-semibold px-3 py-1.5 rounded-full transition-all text-pink-500 bg-pink-100/80">
+                        <i class="fas fa-home mr-1"></i> Trang Chủ
+                    </button>
+                    <button onclick="showPage('memory')" id="nav-memory" class="nav-btn text-xs md:text-sm font-semibold px-3 py-1.5 rounded-full transition-all text-gray-600 hover:text-pink-500">
+                        <i class="fas fa-camera-retro mr-1"></i> Kỷ Niệm
+                    </button>
+                    <button onclick="showPage('sticker')" id="nav-sticker" class="nav-btn text-xs md:text-sm font-semibold px-3 py-1.5 rounded-full transition-all text-gray-600 hover:text-pink-500">
+                        <i class="fas fa-icons mr-1"></i> Sticker
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- PAGE 1: HOME PAGE -->
+        <main id="page-home" class="page-section max-w-4xl mx-auto px-4 py-6 md:py-10 space-y-12">
+            
+            <!-- SECTION 1: HERO -->
+            <section class="text-center relative py-6 md:py-10">
+                <div class="inline-block mb-3">
+                    <span class="bg-pink-100 text-pink-600 text-xs md:text-sm font-bold px-4 py-1.5 rounded-full border border-pink-200 shadow-sm">
+                        🎂 Special Day • For My Sunshine 🎂
+                    </span>
+                </div>
+
+                <h1 class="font-romantic text-5xl md:text-7xl font-bold text-pink-500 mb-3 drop-shadow-sm tracking-wide">
+                    Happy Birthday!
+                </h1>
+
+                <h2 id="wife-name-display" class="text-2xl md:text-4xl font-bold text-teal-600 mb-4">
+                    [Gấm] 💖
+                </h2>
+
+                <p id="hero-subtitle" class="text-base md:text-lg text-gray-600 max-w-md mx-auto font-medium px-4">
+                    "Chúc em một ngày sinh nhật thật dịu dàng, tràn ngập tiếng cười và hạnh phúc!"
+                </p>
+
+                <!-- Mascot Couple Display (Đã thay bằng Sticker_chinh.png) -->
+                <div class="my-8 relative inline-block">
+                    <div class="w-48 h-48 md:w-60 md:h-60 mx-auto rounded-full glass-card p-4 flex items-center justify-center animate-glow overflow-hidden">
+                        <img src="images/Sticker_chinh.png" alt="Sticker Chính" class="w-full h-full object-contain">
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: EDITABLE BIRTHDAY LETTER -->
+            <section class="max-w-2xl mx-auto">
+                <div class="glass-card rounded-3xl p-6 md:p-10 relative overflow-hidden border-2 border-pink-200">
+                    <div class="absolute -top-6 -right-6 text-6xl opacity-10">✉️</div>
+                    
+                    <div class="flex items-center space-x-3 mb-6 border-b border-pink-100 pb-4">
+                        <span class="text-3xl">💌</span>
+                        <h3 class="font-romantic text-3xl font-bold text-pink-500">Gửi Em iu Của Anh</h3>
+                    </div>
+
+                    <div id="editable-letter-content" class="space-y-4 text-gray-700 leading-relaxed text-sm md:text-base font-medium">
+                        <p>
+                            Chúc mừng sinh nhật người phụ nữ tuyệt vời nhất trong cuộc đời anh! 🌸
+                        </p>
+                        <p>
+                            Cảm ơn em vì đã luôn mang đến sự ấm áp, dịu dàng và muôn vàn niềm vui cho gia đình mình. Mỗi khoảnh khắc ở bên em đều là một món quà vô giá mà anh luôn trân trọng.
+                        </p>
+                        <p>
+                            Mùa sinh nhật năm nay, anh chúc em luôn rạng rỡ, yêu đời, đạt được mọi ước mơ em ấp ủ và mãi là cô gái hạnh phúc nhất trên đời. Anh sẽ luôn ở đây để đồng hành và chăm sóc cho em! ✨
+                        </p>
+                    </div>
+
+                    <div class="mt-8 text-right font-romantic text-2xl text-pink-500 font-bold">
+                        Yêu em thật nhiều ❤️
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: INTERACTIVE PET / MASCOT AREA -->
+            <section class="text-center py-4">
+                <div class="glass-card rounded-2xl p-6 max-w-md mx-auto">
+                    <p class="text-xs font-bold text-pink-400 uppercase tracking-wider mb-2">Góc Tương Tác Dễ Thương</p>
+                    <h4 class="text-lg font-bold text-gray-700 mb-4">Gõ Nhẹ Vào Mascot Nè! 🐾</h4>
+                    
+                    <div id="interactive-pet" onclick="triggerPetReaction()" class="w-32 h-32 mx-auto cursor-pointer transform hover:scale-110 active:scale-95 transition duration-300">
+                        <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow">
+                            <circle cx="50" cy="50" r="40" fill="#FFD1DC" />
+                            <polygon points="20,25 35,5 45,25" fill="#FFB7B2" />
+                            <polygon points="80,25 65,5 55,25" fill="#FFB7B2" />
+                            <ellipse cx="38" cy="45" rx="4" ry="6" fill="#4A3E3D" />
+                            <ellipse cx="62" cy="45" rx="4" ry="6" fill="#4A3E3D" />
+                            <circle cx="30" cy="55" r="5" fill="#FF80BF" opacity="0.7" />
+                            <circle cx="70" cy="55" r="5" fill="#FF80BF" opacity="0.7" />
+                            <path d="M 45 55 Q 50 60 55 55" stroke="#4A3E3D" stroke-width="2" fill="none" />
+                        </svg>
+                    </div>
+
+                    <p id="pet-speech-bubble" class="text-sm font-semibold text-pink-600 mt-3 h-6">
+                        "Chúc Vợ iu Sinh Nhật Vui Vẻ~ Meow!"
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 4: NAVIGATION CARDS (MEMORY & STICKER) -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <div onclick="showPage('memory')" class="glass-card glass-card-hover rounded-3xl p-6 cursor-pointer flex flex-col items-center text-center group border-2 border-pink-200/60">
+                    <div class="text-5xl mb-3 group-hover:scale-110 transition duration-300">📸</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Góc Kỷ Niệm</h3>
+                    <p class="text-sm text-gray-600 mb-4">Nơi lưu giữ những khoảnh khắc ngọt ngào nhất của chúng mình.</p>
+                    <span class="text-xs font-bold text-pink-500 bg-pink-100 px-4 py-2 rounded-full group-hover:bg-pink-500 group-hover:text-white transition">
+                        Xem Album Ảnh <i class="fas fa-arrow-right ml-1"></i>
+                    </span>
+                </div>
+
+                <div onclick="showPage('sticker')" class="glass-card glass-card-hover rounded-3xl p-6 cursor-pointer flex flex-col items-center text-center group border-2 border-blue-200/60">
+                    <div class="text-5xl mb-3 group-hover:scale-110 transition duration-300">🎀</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Bộ Sticker Dễ Thương</h3>
+                    <p class="text-sm text-gray-600 mb-4">Bộ sưu tập sticker đáng yêu anh chọn riêng cho em.</p>
+                    <span class="text-xs font-bold text-teal-600 bg-teal-100 px-4 py-2 rounded-full group-hover:bg-teal-500 group-hover:text-white transition">
+                        Khám Phá Sticker <i class="fas fa-arrow-right ml-1"></i>
+                    </span>
+                </div>
+            </section>
+
+            <!-- SECTION 5: FINAL LOVE NOTE -->
+            <section class="text-center py-8 border-t border-pink-100">
+                <p class="font-romantic text-3xl text-pink-500 font-bold mb-2">
+                    "Chúc em luôn vui, luôn cười và luôn được yêu thương. ❤️"
+                </p>
+                <p class="text-xs tracking-widest text-gray-400 uppercase">Happy Birthday, My Love Forever</p>
+            </section>
+        </main>
+
+        <!-- PAGE 2: MEMORY ALBUM PAGE -->
+        <main id="page-memory" class="page-section hidden max-w-5xl mx-auto px-4 py-8 space-y-8">
+            <div class="flex items-center justify-between">
+                <button onclick="showPage('home')" class="text-sm font-bold text-pink-500 bg-white/80 hover:bg-white px-4 py-2 rounded-full shadow-sm border border-pink-200 transition">
+                    <i class="fas fa-arrow-left mr-2"></i> Trang Chủ
+                </button>
+                <h2 class="font-romantic text-3xl md:text-4xl font-bold text-pink-500">Album Kỷ Niệm 🌸</h2>
+                <div class="w-16"></div>
+            </div>
+
+            <!-- Scrapbook Photo Grid -->
+            <div id="memory-gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-4">
+                <!-- PHOTO 1 -->
+                <div class="polaroid rounded-lg transform -rotate-2 relative group">
+                    <div onclick="openLightbox(0)" class="w-full h-52 bg-pink-100 rounded overflow-hidden flex items-center justify-center cursor-pointer">
+                        <img src="images/anh1.jpg" alt="Kỷ Niệm 01" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-romantic text-xl text-gray-700 mt-3 mb-2">Chuyến đi đầu tiên 🌊</p>
+                    <button onclick="downloadImage('images/anh1.jpg', 'Anh_Ky_Niem_01.jpg')" class="w-full py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-600 text-xs font-bold rounded-lg border border-pink-200 transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Ảnh</span>
+                    </button>
+                </div>
+
+                <!-- PHOTO 2 -->
+                <div class="polaroid rounded-lg transform rotate-2 relative group">
+                    <div onclick="openLightbox(1)" class="w-full h-52 bg-blue-100 rounded overflow-hidden flex items-center justify-center cursor-pointer">
+                        <img src="images/anh2.jpg" alt="Kỷ Niệm 02" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-romantic text-xl text-gray-700 mt-3 mb-2">Buổi hẹn hò ngọt ngào ☕</p>
+                    <button onclick="downloadImage('images/anh2.jpg', 'Anh_Ky_Niem_02.jpg')" class="w-full py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-600 text-xs font-bold rounded-lg border border-pink-200 transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Ảnh</span>
+                    </button>
+                </div>
+
+                <!-- PHOTO 3 -->
+                <div class="polaroid rounded-lg transform -rotate-1 relative group">
+                    <div onclick="openLightbox(2)" class="w-full h-52 bg-purple-100 rounded overflow-hidden flex items-center justify-center cursor-pointer">
+                        <img src="images/anh3.jpg" alt="Kỷ Niệm 03" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-romantic text-xl text-gray-700 mt-3 mb-2">Nụ cười xinh nhất 💖</p>
+                    <button onclick="downloadImage('images/anh3.jpg', 'Anh_Ky_Niem_03.jpg')" class="w-full py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-600 text-xs font-bold rounded-lg border border-pink-200 transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Ảnh</span>
+                    </button>
+                </div>
+
+                <!-- PHOTO 4 -->
+                <div class="polaroid rounded-lg transform rotate-3 relative group">
+                    <div onclick="openLightbox(3)" class="w-full h-52 bg-amber-100 rounded overflow-hidden flex items-center justify-center cursor-pointer">
+                        <img src="images/anh4.jpg" alt="Kỷ Niệm 04" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-romantic text-xl text-gray-700 mt-3 mb-2">Sinh nhật năm ngoái 🎂</p>
+                    <button onclick="downloadImage('images/anh4.jpg', 'Anh_Ky_Niem_04.jpg')" class="w-full py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-600 text-xs font-bold rounded-lg border border-pink-200 transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Ảnh</span>
+                    </button>
+                </div>
+
+                <!-- PHOTO 5 -->
+                <div class="polaroid rounded-lg transform -rotate-2 relative group">
+                    <div onclick="openLightbox(4)" class="w-full h-52 bg-rose-100 rounded overflow-hidden flex items-center justify-center cursor-pointer">
+                        <img src="images/anh5.jpg" alt="Kỷ Niệm 05" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-romantic text-xl text-gray-700 mt-3 mb-2">Khoảnh khắc bình yên 🌻</p>
+                    <button onclick="downloadImage('images/anh5.jpg', 'Anh_Ky_Niem_05.jpg')" class="w-full py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-600 text-xs font-bold rounded-lg border border-pink-200 transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Ảnh</span>
+                    </button>
+                </div>
+
+                <!-- PHOTO 6 -->
+                <div class="polaroid rounded-lg transform rotate-1 relative group">
+                    <div onclick="openLightbox(5)" class="w-full h-52 bg-teal-100 rounded overflow-hidden flex items-center justify-center cursor-pointer">
+                        <img src="images/anh6.jpg" alt="Kỷ Niệm 06" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-romantic text-xl text-gray-700 mt-3 mb-2">Bên nhau mỗi ngày ✨</p>
+                    <button onclick="downloadImage('images/anh6.jpg', 'Anh_Ky_Niem_06.jpg')" class="w-full py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-600 text-xs font-bold rounded-lg border border-pink-200 transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Ảnh</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- PAGE 3: STICKER PAGE -->
+        <main id="page-sticker" class="page-section hidden max-w-4xl mx-auto px-4 py-8 space-y-8">
+            <div class="flex items-center justify-between">
+                <button onclick="showPage('home')" class="text-sm font-bold text-pink-500 bg-white/80 hover:bg-white px-4 py-2 rounded-full shadow-sm border border-pink-200 transition">
+                    <i class="fas fa-arrow-left mr-2"></i> Trang Chủ
+                </button>
+                <h2 class="font-romantic text-3xl md:text-4xl font-bold text-pink-500">Bộ Sticker Cute 🎀</h2>
+                <div class="w-16"></div>
+            </div>
+
+            <p class="text-center text-gray-600 text-sm md:text-base">Rê chuột vào để xem sticker nảy nảy hoặc chạm vào nút bên dưới để tải về nhé!</p>
+
+            <!-- Interactive Sticker Collection Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 pt-2">
+                <!-- STICKER 1 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col items-center justify-between transform transition hover:scale-105">
+                    <div onclick="animateSticker(this)" class="w-full flex flex-col items-center cursor-pointer">
+                        <img src="images/sticker1.png" alt="Tết" class="w-36 h-36 object-contain mb-2 hover:animate-bounce transition-transform duration-300">
+                        <span class="text-xs font-bold text-pink-500 mb-3">Tết</span>
+                    </div>
+                    <button onclick="downloadImage('images/sticker1.png', 'Sticker_Tet.png')" class="w-full py-1.5 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold rounded-xl shadow transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Sticker</span>
+                    </button>
+                </div>
+
+                <!-- STICKER 2 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col items-center justify-between transform transition hover:scale-105">
+                    <div onclick="animateSticker(this)" class="w-full flex flex-col items-center cursor-pointer">
+                        <img src="images/sticker2.png" alt="Hoa Hồng" class="w-36 h-36 object-contain mb-2 hover:animate-bounce transition-transform duration-300">
+                        <span class="text-xs font-bold text-pink-500 mb-3">Hoa Hồng</span>
+                    </div>
+                    <button onclick="downloadImage('images/sticker2.png', 'Sticker_Hoa_Hong.png')" class="w-full py-1.5 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold rounded-xl shadow transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Sticker</span>
+                    </button>
+                </div>
+
+                <!-- STICKER 3 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col items-center justify-between transform transition hover:scale-105">
+                    <div onclick="animateSticker(this)" class="w-full flex flex-col items-center cursor-pointer">
+                        <img src="images/sticker3.png" alt="I love you" class="w-36 h-36 object-contain mb-2 hover:animate-bounce transition-transform duration-300">
+                        <span class="text-xs font-bold text-pink-500 mb-3">I love you</span>
+                    </div>
+                    <button onclick="downloadImage('images/sticker3.png', 'Sticker_ILoveYou.png')" class="w-full py-1.5 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold rounded-xl shadow transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Sticker</span>
+                    </button>
+                </div>
+
+                <!-- STICKER 4 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col items-center justify-between transform transition hover:scale-105">
+                    <div onclick="animateSticker(this)" class="w-full flex flex-col items-center cursor-pointer">
+                        <img src="images/sticker4.png" alt="Gấu Bông" class="w-36 h-36 object-contain mb-2 hover:animate-bounce transition-transform duration-300">
+                        <span class="text-xs font-bold text-pink-500 mb-3">Nắm tay</span>
+                    </div>
+                    <button onclick="downloadImage('images/sticker4.png', 'Sticker_Gau_Bong.png')" class="w-full py-1.5 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold rounded-xl shadow transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Sticker</span>
+                    </button>
+                </div>
+
+                <!-- STICKER 5 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col items-center justify-between transform transition hover:scale-105">
+                    <div onclick="animateSticker(this)" class="w-full flex flex-col items-center cursor-pointer">
+                        <img src="images/sticker5.png" alt="Bánh Sinh Nhật" class="w-36 h-36 object-contain mb-2 hover:animate-bounce transition-transform duration-300">
+                        <span class="text-xs font-bold text-pink-500 mb-3">Há miệng ra nè</span>
+                    </div>
+                    <button onclick="downloadImage('images/sticker5.png', 'Sticker_Banh_Sinh_Nhat.png')" class="w-full py-1.5 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold rounded-xl shadow transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Sticker</span>
+                    </button>
+                </div>
+
+                <!-- STICKER 6 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col items-center justify-between transform transition hover:scale-105">
+                    <div onclick="animateSticker(this)" class="w-full flex flex-col items-center cursor-pointer">
+                        <img src="images/sticker6.png" alt="Mèo Cute" class="w-36 h-36 object-contain mb-2 hover:animate-bounce transition-transform duration-300">
+                        <span class="text-xs font-bold text-pink-500 mb-3">Ngủ ngon nhoaaa</span>
+                    </div>
+                    <button onclick="downloadImage('images/sticker6.png', 'Sticker_Meo_Cute.png')" class="w-full py-1.5 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold rounded-xl shadow transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Sticker</span>
+                    </button>
+                </div>
+
+                <!-- STICKER 7 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col items-center justify-between transform transition hover:scale-105">
+                    <div onclick="animateSticker(this)" class="w-full flex flex-col items-center cursor-pointer">
+                        <img src="images/sticker7.png" alt="Lấp Lánh" class="w-36 h-36 object-contain mb-2 hover:animate-bounce transition-transform duration-300">
+                        <span class="text-xs font-bold text-pink-500 mb-3">Lấp Lánh</span>
+                    </div>
+                    <button onclick="downloadImage('images/sticker7.png', 'Sticker_Lap_Lanh.png')" class="w-full py-1.5 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold rounded-xl shadow transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Sticker</span>
+                    </button>
+                </div>
+
+                <!-- STICKER 8 -->
+                <div class="glass-card rounded-2xl p-5 flex flex-col items-center justify-between transform transition hover:scale-105">
+                    <div onclick="animateSticker(this)" class="w-full flex flex-col items-center cursor-pointer">
+                        <img src="images/sticker8.png" alt="Thư Tình" class="w-36 h-36 object-contain mb-2 hover:animate-bounce transition-transform duration-300">
+                        <span class="text-xs font-bold text-pink-500 mb-3">Thư Tình</span>
+                    </div>
+                    <button onclick="downloadImage('images/sticker8.png', 'Sticker_Thu_Tinh.png')" class="w-full py-1.5 bg-pink-500 hover:bg-pink-600 text-white text-xs font-bold rounded-xl shadow transition flex items-center justify-center space-x-1">
+                        <i class="fas fa-download"></i>
+                        <span>Tải Sticker</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- LIGHTBOX MODAL FOR MEMORY GALLERY -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex flex-col items-center justify-center p-4">
+        <!-- Close Button -->
+        <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white text-3xl hover:text-pink-300 transition">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <!-- Lightbox Content Wrapper -->
+        <div class="relative max-w-3xl w-full flex flex-col items-center">
+            <div id="lightbox-image-container" class="w-full max-h-[70vh] flex justify-center items-center rounded-xl overflow-hidden bg-white/10 p-2">
+                <!-- Dynamic Image -->
+            </div>
+            
+            <p id="lightbox-caption" class="text-white font-romantic text-2xl mt-4 text-center"></p>
+
+            <!-- Download Button in Lightbox -->
+            <button id="lightbox-download-btn" onclick="downloadCurrentLightboxImage()" class="mt-3 px-5 py-2 bg-pink-500 hover:bg-pink-600 text-white text-sm font-bold rounded-full shadow-lg transition flex items-center space-x-2">
+                <i class="fas fa-download"></i>
+                <span>Tải Ảnh Này</span>
+            </button>
+
+            <!-- Prev / Next Controls -->
+            <button onclick="changeLightboxImage(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur transition">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button onclick="changeLightboxImage(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur transition">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        const WIFE_CONFIG = {
+            wifeName: "Gấm iu",
+            
+            memoryCaptions: [
+                "Chuyến đi đầu tiên 🌊",
+                "Buổi hẹn hò ngọt ngào ☕",
+                "Nụ cười xinh nhất 💖",
+                "Sinh nhật năm ngoái 🎂",
+                "Khoảnh khắc bình yên 🌻",
+                "Bên nhau mỗi ngày ✨"
+            ],
+
+            memoryImages: [
+                "images/anh1.jpg",
+                "images/anh2.jpg",
+                "images/anh3.jpg",
+                "images/anh4.jpg",
+                "images/anh5.jpg",
+                "images/anh6.jpg"
+            ],
+
+            petSpeech: [
+                "Chúc Vợ iu Sinh Nhật Vui Vẻ~ Meow!",
+                "Vợ là cô gái cute nhất thế giới! 🌸",
+                "Thương Vợ iu nhiều lắm luôn! ❤️",
+                "Tối nay ăn mì cay nhoaaaaaa! 🎂"
+            ]
+        };
+
+        let currentPhotoIndex = 0;
+        let isMusicPlaying = false;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const wifeNameEl = document.getElementById('wife-name-display');
+            if (wifeNameEl) {
+                wifeNameEl.innerText = `${WIFE_CONFIG.wifeName} 💖`;
+            }
+            createFloatingBackground();
+            initDraggableSideImages();
+        });
+
+        // 1. OPENING GIFT BOX SEQUENCE
+        function openGiftBox() {
+            const giftLid = document.getElementById('gift-lid');
+            const openingScreen = document.getElementById('opening-screen');
+            const appContent = document.getElementById('app-content');
+
+            if (giftLid) {
+                giftLid.style.transform = 'translateY(-40px) rotate(-15deg)';
+            }
+
+            toggleMusic(true);
+            createBurstSparkles();
+
+            setTimeout(() => {
+                openingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    openingScreen.style.display = 'none';
+                    appContent.classList.remove('opacity-0');
+                }, 800);
+            }, 600);
+        }
+
+        // 2. PAGE NAVIGATION SYSTEM
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(p => p.classList.add('hidden'));
+
+            const activePage = document.getElementById(`page-${pageId}`);
+            if (activePage) {
+                activePage.classList.remove('hidden');
+            }
+
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('bg-pink-100/80', 'text-pink-500');
+                btn.classList.add('text-gray-600');
+            });
+
+            const activeNav = document.getElementById(`nav-${pageId}`);
+            if (activeNav) {
+                activeNav.classList.add('bg-pink-100/80', 'text-pink-500');
+                activeNav.classList.remove('text-gray-600');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 3. AUDIO CONTROL
+        function toggleMusic(forcePlay = false) {
+            const music = document.getElementById('bg-music');
+            const icon = document.getElementById('music-icon');
+            const text = document.getElementById('music-text');
+
+            if (forcePlay || !isMusicPlaying) {
+                music.play().then(() => {
+                    isMusicPlaying = true;
+                    icon.className = "fas fa-music text-pink-500 animate-spin";
+                    text.innerText = "Đang Phát 🎶";
+                }).catch(err => {
+                    console.log("Autoplay restricted by browser.");
+                });
+            } else {
+                music.pause();
+                isMusicPlaying = false;
+                icon.className = "fas fa-volume-mute text-pink-400";
+                text.innerText = "Âm Nhạc";
+            }
+        }
+
+        // 4. INTERACTIVE PET REACTION
+        function triggerPetReaction() {
+            const petBubble = document.getElementById('pet-speech-bubble');
+            const randomSpeech = WIFE_CONFIG.petSpeech[Math.floor(Math.random() * WIFE_CONFIG.petSpeech.length)];
+            
+            petBubble.innerText = randomSpeech;
+            petBubble.classList.add('animate-bounce');
+
+            setTimeout(() => {
+                petBubble.classList.remove('animate-bounce');
+            }, 1000);
+        }
+
+        // 5. MEMORY LIGHTBOX SYSTEM
+        function openLightbox(index) {
+            currentPhotoIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const container = document.getElementById('lightbox-image-container');
+            const caption = document.getElementById('lightbox-caption');
+
+            const imgSrc = WIFE_CONFIG.memoryImages[index] || `images/anh${index + 1}.jpg`;
+            container.innerHTML = `<img src="${imgSrc}" class="max-h-[65vh] object-contain rounded-lg shadow-lg">`;
+            
+            caption.innerText = WIFE_CONFIG.memoryCaptions[index] || `Kỷ niệm ngọt ngào ${index + 1}`;
+            lightbox.classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+
+        function changeLightboxImage(direction) {
+            currentPhotoIndex += direction;
+            const maxIndex = WIFE_CONFIG.memoryCaptions.length - 1;
+
+            if (currentPhotoIndex < 0) currentPhotoIndex = maxIndex;
+            if (currentPhotoIndex > maxIndex) currentPhotoIndex = 0;
+
+            openLightbox(currentPhotoIndex);
+        }
+
+        function downloadCurrentLightboxImage() {
+            const imgSrc = WIFE_CONFIG.memoryImages[currentPhotoIndex] || `images/anh${currentPhotoIndex + 1}.jpg`;
+            downloadImage(imgSrc, `Anh_Ky_Niem_0${currentPhotoIndex + 1}.jpg`);
+        }
+
+        // 6. DOWNLOAD HELPER FUNCTION
+        function downloadImage(url, filename) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // 7. STICKER ANIMATION TRIGGER
+        function animateSticker(element) {
+            element.classList.add('scale-125', 'rotate-12');
+            setTimeout(() => {
+                element.classList.remove('scale-125', 'rotate-12');
+            }, 400);
+        }
+
+        // 8. BACKGROUND SPARKLE GENERATOR
+        function createFloatingBackground() {
+            const container = document.getElementById('floating-bg');
+            const symbols = ['✨', '💗', '🌸', '☁', '⭐'];
+
+            for (let i = 0; i < 15; i++) {
+                const el = document.createElement('div');
+                el.className = 'bg-particle';
+                el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+                el.style.left = `${Math.random() * 100}%`;
+                el.style.top = `${Math.random() * 100}%`;
+                el.style.animationDelay = `${Math.random() * 5}s`;
+                el.style.fontSize = `${Math.random() * 14 + 14}px`;
+                container.appendChild(el);
+            }
+        }
+
+        function createBurstSparkles() {
+            const container = document.getElementById('opening-screen');
+            for (let i = 0; i < 20; i++) {
+                const spark = document.createElement('div');
+                spark.innerText = '💖';
+                spark.style.position = 'absolute';
+                spark.style.left = '50%';
+                spark.style.top = '50%';
+                spark.style.transition = 'all 1s ease-out';
+                container.appendChild(spark);
+
+                setTimeout(() => {
+                    const angle = Math.random() * Math.PI * 2;
+                    const dist = Math.random() * 200 + 50;
+                    spark.style.transform = `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist}px) scale(1.5)`;
+                    spark.style.opacity = '0';
+                }, 50);
+            }
+        }
+
+        // 9. DRAGGABLE FUNCTIONALITY FOR FLOATING SIDE IMAGES (MOUSE & TOUCH)
+        function initDraggableSideImages() {
+            const draggableImgs = document.querySelectorAll('.draggable-img');
+
+            draggableImgs.forEach(img => {
+                makeElementDraggable(img);
+            });
+        }
+
+        function makeElementDraggable(elmnt) {
+            let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+            elmnt.onmousedown = dragMouseDown;
+            elmnt.ontouchstart = dragTouchStart;
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+
+                elmnt.style.animationPlayState = 'paused';
+                elmnt.style.zIndex = '100';
+
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                elmnt.style.right = 'auto'; // Reset right style để vị trí left hoạt động chính xác
+            }
+
+            function dragTouchStart(e) {
+                const touch = e.touches[0];
+                pos3 = touch.clientX;
+                pos4 = touch.clientY;
+
+                elmnt.style.animationPlayState = 'paused';
+                elmnt.style.zIndex = '100';
+
+                document.ontouchend = closeDragElement;
+                document.ontouchmove = elementTouchMove;
+            }
+
+            function elementTouchMove(e) {
+                const touch = e.touches[0];
+                pos1 = pos3 - touch.clientX;
+                pos2 = pos4 - touch.clientY;
+                pos3 = touch.clientX;
+                pos4 = touch.clientY;
+
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                elmnt.style.right = 'auto';
+            }
+
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+                document.ontouchend = null;
+                document.ontouchmove = null;
+
+                elmnt.style.animationPlayState = 'running';
+                elmnt.style.zIndex = '30';
+            }
+        }
+    </script>
+</body>
+</html>
